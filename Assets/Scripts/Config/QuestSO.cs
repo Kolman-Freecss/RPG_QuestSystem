@@ -55,7 +55,9 @@ namespace Kolman_Freecss.QuestSystem
         {
             get => _reward;
         }
-        
-        
+
+        public int storyId;
+
+
     }
 }

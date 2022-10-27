@@ -2,13 +2,40 @@
 {
     public class Quest
     {
+        private int _id;
+        public int ID
+        {
+            get { return _id; }
+        }
+        
         private QuestSO _questSo;
+        public QuestSO QuestSO
+        {
+            get { return _questSo; }
+        }
+        
         private QuestStatus _status;
-    
+        public int storyId;
+        
         public Quest(QuestSO questSo)
         {
             _questSo = questSo;
             _status = QuestStatus.Inactive;
+        }
+        
+        public void ActiveQuest()
+        {
+            _status = QuestStatus.NotStarted;
+        }
+        
+        public void StartQuest()
+        {
+            _status = QuestStatus.Started;
+        }
+        
+        public void CompleteQuest()
+        {
+            _status = QuestStatus.Completed;
         }
     
         public void UpdateStatus()

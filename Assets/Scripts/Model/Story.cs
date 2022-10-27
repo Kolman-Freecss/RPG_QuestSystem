@@ -4,17 +4,39 @@ namespace Kolman_Freecss.QuestSystem
 {
     public class Story
     {
-        string Name { get; set; }
-        string Description { get; set; }
-        List<Quest> Quests { get; set; }
-        List<Story> SubStories { get; set; }
-        Story ParentStory { get; set; }
-        bool IsCompleted { get; set; }
-        bool IsMainStory { get; set; }
-        bool IsSubStory { get; set; }
-        bool IsUnlocked { get; set; }
-        bool IsLocked { get; set; }
-        
+        public string Name;
+        public string Description;
+        public List<Quest> Quests;
+        public Quest CurrentQuest;
+        public List<Story> SubStories;
+        public Story ParentStory;
+        public bool IsCompleted;
+        public bool IsMainStory;
+        public bool IsSubStory;
+        public bool IsUnlocked;
+        public bool IsLocked;
+
+        /**
+         * Active the next quest by index of the story steps
+         */
+        public void NextQuest()
+        {
+            if (CurrentQuest == null)
+            {
+                CurrentQuest = Quests[0];
+            }
+            else
+            {
+                CurrentQuest = GetQuestByStoryStep(CurrentQuest.QuestSO.StoryStep + 1);
+                CurrentQuest.ActiveQuest();
+            }
+        }
+
+        private Quest GetQuestByStoryStep(int step)
+        {
+            return Quests.Find(q => q.QuestSO.StoryStep == step);
+        }
+
         /**
          * Quantity of steps in the story
          */
@@ -22,6 +44,16 @@ namespace Kolman_Freecss.QuestSystem
         {
             return Quests.Count;
         }
-        
+
+        public void AcceptQuest()
+        {
+            CurrentQuest.StartQuest();
+        }
+
+        public void Unlock()
+        {
+            IsUnlocked = true;
+            IsLocked = false;
+        }
     }
 }

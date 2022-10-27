@@ -15,13 +15,24 @@ namespace Kolman_Freecss.QuestSystem
 
         public Quest CurrentQuest { get; }
 
+        public GameManager gameManager;
+        
+        void Start()
+        {
+            gameManager = FindObjectOfType<GameManager>();
+            _quests.ForEach(q => q.storyId = q.QuestSO.storyId);
+        }
+
         public void AcceptQuest()
         {
-            
+            CurrentQuest.UpdateStatus();
+            gameManager.currentStory.AcceptQuest();
         }
         
         public void CompleteQuest()
         {
+            CurrentQuest.UpdateStatus();
+            gameManager.currentStory.NextQuest();
             
         }
         
