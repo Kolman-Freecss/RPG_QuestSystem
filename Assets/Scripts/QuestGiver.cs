@@ -22,6 +22,11 @@ namespace Kolman_Freecss.QuestSystem
             gameManager = FindObjectOfType<GameManager>();
             _quests.ForEach(q => q.storyId = q.QuestSO.storyId);
         }
+        
+        public bool HasQuest(Quest quest)
+        {
+            return _quests.Contains(quest);
+        }
 
         public void AcceptQuest()
         {
@@ -32,8 +37,7 @@ namespace Kolman_Freecss.QuestSystem
         public void CompleteQuest()
         {
             CurrentQuest.UpdateStatus();
-            gameManager.currentStory.NextQuest();
-            
+            gameManager.NextQuest();
         }
         
     }
