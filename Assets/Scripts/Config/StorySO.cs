@@ -10,8 +10,8 @@ namespace Kolman_Freecss.QuestSystem
         public new string name;
         public string description;
         public List<QuestSO> quests;
-        public List<Story> SubStories;
-        public Story ParentStory;
+        public List<StorySO> SubStories;
+        public StorySO ParentStory;
         public bool isMainStory;
         public bool isSubStory;
     }

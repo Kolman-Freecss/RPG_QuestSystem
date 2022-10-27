@@ -1,43 +1,45 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Kolman_Freecss.QuestSystem
 {
     public class QuestGiver : MonoBehaviour
     {
-        [Header("Quest Info")] [SerializeField]
-        private List<Quest> _quests = new List<Quest>();
-
-        public List<Quest> Quests
-        {
-            get => _quests;
-        }
+        [Header("Quest Info")]
+        public List<QuestSO> QuestsSO = new List<QuestSO>();
+        
+        private List<Quest> Quests = new List<Quest>();
 
         public Quest CurrentQuest { get; }
 
-        public GameManager gameManager;
-        
+        private GameManager _gameManager;
+
+        private void Awake()
+        {
+            _gameManager = FindObjectOfType<GameManager>();
+        }
+
         void Start()
         {
-            gameManager = FindObjectOfType<GameManager>();
-            _quests.ForEach(q => q.storyId = q.QuestSO.storyId);
+            Quests.ForEach(q => q.storyId = q.QuestSO.storyId);
         }
         
         public bool HasQuest(Quest quest)
         {
-            return _quests.Contains(quest);
+            return Quests.Contains(quest);
         }
 
         public void AcceptQuest()
         {
             CurrentQuest.UpdateStatus();
-            gameManager.currentStory.AcceptQuest();
+            _gameManager.currentStory.AcceptQuest();
         }
         
         public void CompleteQuest()
         {
             CurrentQuest.UpdateStatus();
-            gameManager.NextQuest();
+            _gameManager.NextQuest();
         }
         
     }

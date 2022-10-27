@@ -52,7 +52,7 @@ namespace Kolman_Freecss.QuestSystem
         private void SetCursor(RaycastHit info)
         {
             QuestGiver qg = info.collider.gameObject.GetComponent<QuestGiver>();
-            if (qg)
+            if (qg && qg.CurrentQuest != null)
             {
                 if (qg.CurrentQuest.IsStarted())
                 {
@@ -70,6 +70,10 @@ namespace Kolman_Freecss.QuestSystem
                 {
                     Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
                 }
+            }
+            else
+            {
+                Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
             }
         }
 

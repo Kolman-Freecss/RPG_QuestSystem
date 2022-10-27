@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &163342161654492714
+--- !u!1 &1894935461408426931
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 163342161654492718}
-  - component: {fileID: 163342161654492719}
-  - component: {fileID: 163342161654492716}
-  - component: {fileID: 163342161654492717}
-  - component: {fileID: 1469498660121544044}
-  - component: {fileID: 6112462347994812729}
-  m_Layer: 6
-  m_Name: NPC
+  - component: {fileID: 1894935461408426895}
+  - component: {fileID: 1894935461408426894}
+  - component: {fileID: 1894935461408426929}
+  - component: {fileID: 1894935461408426928}
+  - component: {fileID: -6418922427144641334}
+  - component: {fileID: -8437122003040418241}
+  m_Layer: 0
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &163342161654492718
+--- !u!4 &1894935461408426895
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163342161654492714}
+  m_GameObject: {fileID: 1894935461408426931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 112.21529, y: 24.421991, z: 132.66}
+  m_LocalPosition: {x: 1.29, y: -0.93, z: -4.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &163342161654492719
+--- !u!33 &1894935461408426894
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163342161654492714}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &163342161654492716
+  m_GameObject: {fileID: 1894935461408426931}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1894935461408426929
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163342161654492714}
+  m_GameObject: {fileID: 1894935461408426931}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,44 +86,46 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &163342161654492717
-BoxCollider:
+--- !u!136 &1894935461408426928
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163342161654492714}
+  m_GameObject: {fileID: 1894935461408426931}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1469498660121544044
+--- !u!114 &-6418922427144641334
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163342161654492714}
+  m_GameObject: {fileID: 1894935461408426931}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 701bf4627a174a6c97d48c2e54233a2e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a4aa0f9f67060540ac9243dc998fc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
---- !u!114 &6112462347994812729
+  defaultCursor: {fileID: 2800000, guid: a8bda1bf7a15e0b488920a1eb443d006, type: 3}
+  questNotStartedCursor: {fileID: 2800000, guid: 68c95b538d41ffb4da03c8e477c52c33, type: 3}
+  questStartedCursor: {fileID: 2800000, guid: a8bda1bf7a15e0b488920a1eb443d006, type: 3}
+  questCompletedCursor: {fileID: 2800000, guid: 2b5d6bf9e1cf29a4d8e629c51d834ee4, type: 3}
+--- !u!114 &-8437122003040418241
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163342161654492714}
+  m_GameObject: {fileID: 1894935461408426931}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4a2e38b10be0c9498f03d18035e43ac, type: 3}
+  m_Script: {fileID: 11500000, guid: d36746f535c24578a50e6ab6522ceda2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  highlightOnMouseOver: 1
+  questGivers: []
