@@ -4,8 +4,6 @@
     {
         private QuestSO _questSo;
         private QuestStatus _status;
-        private int _currentStep;
-        private int _currentObjective;
     
         public Quest(QuestSO questSo)
         {
@@ -13,49 +11,56 @@
             _status = QuestStatus.Inactive;
         }
     
-        /*public void UpdateStatus()
+        public void UpdateStatus()
         {
-            if (_status == QuestStatus.Inactive)
+            if (_status.Equals(QuestStatus.NotStarted))
             {
-                if (CheckStartCondition())
-                {
-                    _status = QuestStatus.Active;
-                    _currentStep = 0;
-                    _currentObjective = 0;
-                }
+                //if (CheckStartCondition())
+                //{
+                    _status = QuestStatus.Started;
+                //}
             }
-            else if (_status == QuestStatus.Active)
+            else if (_status == QuestStatus.Started)
             {
                 if (CheckEndCondition())
                 {
                     _status = QuestStatus.Completed;
                 }
-                else
-                {
-                    if (CheckObjectiveCondition())
-                    {
-                        _currentObjective++;
-                    }
-                }
             }
         }
-    
-        private bool CheckStartCondition()
+        
+        /*private bool CheckStartCondition()
         {
-            return _questSo.StartCondition.Check();
-        }
-    
-        private bool CheckEndCondition()
-        {
-            return _questSo.EndCondition.Check();
-        }
-    
-        private bool CheckObjectiveCondition()
-        {
-            return _questSo.Steps[_currentStep].Objectives[_currentObjective].Check();
+            return _questSo.StartCondition.CheckCondition();
         }*/
         
+        private bool CheckEndCondition()
+        {
+            bool endCondition = true;
+            _questSo.Objectives.ForEach(o =>
+            {
+                if (!o.isCompleted)
+                {
+                    endCondition = false;
+                }
+            });
+            return endCondition;
+        }
         
+        public bool IsNotStarted()
+        {
+            return _status == QuestStatus.NotStarted;
+        }
+        
+        public bool IsStarted()
+        {
+            return _status == QuestStatus.Started;
+        }
+        
+        public bool IsCompleted()
+        {
+            return QuestStatus.Completed.Equals(_status);
+        }
         
     }
 

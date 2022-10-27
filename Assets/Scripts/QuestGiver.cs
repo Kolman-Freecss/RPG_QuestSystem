@@ -6,13 +6,24 @@ namespace Kolman_Freecss.QuestSystem
     public class QuestGiver : MonoBehaviour
     {
         [Header("Quest Info")] [SerializeField]
-        private List<QuestSO> _quests = new List<QuestSO>();
+        private List<Quest> _quests = new List<Quest>();
 
-        public List<QuestSO> Quests
+        public List<Quest> Quests
         {
             get => _quests;
         }
 
-        private QuestSO currentQuest;
+        public Quest CurrentQuest { get; }
+
+        public void AcceptQuest()
+        {
+            
+        }
+        
+        public void CompleteQuest()
+        {
+            
+        }
+        
     }
 }

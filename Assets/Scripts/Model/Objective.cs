@@ -1,16 +1,26 @@
-﻿namespace Kolman_Freecss.QuestSystem
+﻿using UnityEngine;
+
+namespace Kolman_Freecss.QuestSystem
 {
+    [System.Serializable]
     public class Objective
     {
-        private bool _isCompleted { get; set; }
-        private int _currentAmount { get; set; }
-        public int RequiredAmount { get; set; }
+        public bool isCompleted;
+
+        private int _currentAmount;
+
+        [SerializeField] private int _requiredAmount;
+
+        public int RequiredAmount
+        {
+            get => _requiredAmount;
+        }
 
         public void CheckCompletion()
         {
             if (_currentAmount >= RequiredAmount)
             {
-                _isCompleted = true;
+                isCompleted = true;
             }
         }
     }

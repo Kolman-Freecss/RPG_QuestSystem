@@ -2,6 +2,7 @@
 
 namespace Kolman_Freecss.QuestSystem
 {
+    [System.Serializable]
     public class Reward
     {
         [SerializeField] int _gold;
