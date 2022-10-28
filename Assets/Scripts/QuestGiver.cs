@@ -11,35 +11,17 @@ namespace Kolman_Freecss.QuestSystem
         
         private List<Quest> Quests = new List<Quest>();
 
-        public Quest CurrentQuest { get; }
-
-        private GameManager _gameManager;
-
-        private void Awake()
-        {
-            _gameManager = FindObjectOfType<GameManager>();
-        }
+        public Quest CurrentQuest;
 
         void Start()
         {
-            Quests.ForEach(q => q.storyId = q.QuestSO.storyId);
+            QuestsSO.ForEach(x => Quests.Add(new Quest(x)));
+            CurrentQuest = Quests[0];
         }
         
         public bool HasQuest(Quest quest)
         {
             return Quests.Contains(quest);
-        }
-
-        public void AcceptQuest()
-        {
-            CurrentQuest.UpdateStatus();
-            _gameManager.currentStory.AcceptQuest();
-        }
-        
-        public void CompleteQuest()
-        {
-            CurrentQuest.UpdateStatus();
-            _gameManager.NextQuest();
         }
         
     }

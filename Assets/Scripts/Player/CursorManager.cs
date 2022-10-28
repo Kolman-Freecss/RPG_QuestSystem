@@ -8,12 +8,20 @@ namespace Kolman_Freecss.QuestSystem
         public Texture2D questNotStartedCursor;
         public Texture2D questStartedCursor;
         public Texture2D questCompletedCursor;
+        
+        [Header("Canvas Settings")] 
+        public GameObject questStartedCanvas;
+        public GameObject questNotStartedCanvas;
 
         Camera _currentCamera;
         GameObject _previousObject;
+        RPG_QuestSystemInputs _inputs;
 
         private void Awake()
         {
+            questStartedCanvas.SetActive(false);
+            questNotStartedCanvas.SetActive(false);
+            _inputs = FindObjectOfType<RPG_QuestSystemInputs>();
             ResetCursor();
         }
 
@@ -57,6 +65,10 @@ namespace Kolman_Freecss.QuestSystem
                 if (qg.CurrentQuest.IsStarted())
                 {
                     Cursor.SetCursor(questStartedCursor, Vector2.zero, CursorMode.Auto);
+                    if (_inputs.click)
+                    {
+                        questStartedCanvas.SetActive(false);
+                    }
                 }
                 else if (qg.CurrentQuest.IsCompleted())
                 {
@@ -65,6 +77,10 @@ namespace Kolman_Freecss.QuestSystem
                 else if (qg.CurrentQuest.IsNotStarted())
                 {
                     Cursor.SetCursor(questNotStartedCursor, Vector2.zero, CursorMode.Auto);
+                    if (_inputs.click)
+                    {
+                        questNotStartedCanvas.SetActive(false);
+                    }
                 }
                 else
                 {

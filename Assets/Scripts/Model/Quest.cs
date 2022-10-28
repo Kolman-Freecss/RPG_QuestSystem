@@ -17,6 +17,13 @@
         private QuestStatus _status;
         public int storyId;
         
+        public Quest(QuestSO questSo)
+        {
+            _questSo = questSo;
+            _status = QuestStatus.Inactive;
+            storyId = questSo.storyId;
+        }
+        
         public Quest(QuestSO questSo, int questId)
         {
             _id = questId;

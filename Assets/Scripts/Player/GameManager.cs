@@ -29,10 +29,29 @@ namespace Kolman_Freecss.QuestSystem
             currentStory = stories[0];
         }
 
+        /**
+         * Update the current story and the quest givers
+         */
+        public void AcceptQuest()
+        {
+            UpdateStatusGiverByQuestId(currentStory.CurrentQuest.ID);
+            currentStory.AcceptQuest();
+        }
+
+        /**
+         * Update the current story and the quest givers
+         */
         public void NextQuest()
         {
+            UpdateStatusGiverByQuestId(currentStory.CurrentQuest.ID);
             currentStory.NextQuest();
             refreshQuestGivers();
+        }
+        
+        public void UpdateStatusGiverByQuestId(int questId)
+        {
+            QuestGiver qg = _questGivers.Find(q => q.CurrentQuest.ID == questId);
+            qg.CurrentQuest.UpdateStatus();
         }
         
         void refreshQuestGivers()

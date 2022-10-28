@@ -8,6 +8,11 @@ namespace Kolman_Freecss.QuestSystem
         public bool isCompleted;
 
         private int _currentAmount;
+        
+        public int CurrentAmount
+        {
+            get { return _currentAmount; }
+        }
 
         [SerializeField] private int _requiredAmount;
 
