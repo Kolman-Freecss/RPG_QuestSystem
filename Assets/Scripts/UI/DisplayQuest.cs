@@ -50,11 +50,13 @@ namespace Kolman_Freecss.QuestSystem
         public void OnAcceptQuest()
         {
             _gameManager.AcceptQuest();
+            CloseQuest();
         }
         
         public void OnCompleteQuest()
         {
             _gameManager.NextQuest();
+            CloseQuest();
         }
         
         /*public void OnDeclineQuest()
@@ -63,6 +65,11 @@ namespace Kolman_Freecss.QuestSystem
         }*/
         
         public void OnExit()
+        {
+            CloseQuest();
+        }
+        
+        public void CloseQuest()
         {
             gameObject.SetActive(false);
         }

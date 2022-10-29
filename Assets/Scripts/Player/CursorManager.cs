@@ -12,6 +12,7 @@ namespace Kolman_Freecss.QuestSystem
         [Header("Canvas Settings")] 
         public GameObject questStartedCanvas;
         public GameObject questNotStartedCanvas;
+        public GameObject questCompletedCanvas;
 
         Camera _currentCamera;
         GameObject _previousObject;
@@ -21,6 +22,7 @@ namespace Kolman_Freecss.QuestSystem
         {
             questStartedCanvas.SetActive(false);
             questNotStartedCanvas.SetActive(false);
+            questCompletedCanvas.SetActive(false);
             _inputs = FindObjectOfType<RPG_QuestSystemInputs>();
             ResetCursor();
         }
