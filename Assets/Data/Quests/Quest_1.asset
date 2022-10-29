@@ -16,8 +16,10 @@ MonoBehaviour:
   _description: Default description quest
   _objectiveText: "Default objective quest\t"
   _objectives:
-  - _requiredAmount: 12
+  - isCompleted: 0
+    _requiredAmount: 12
   _storyStep: 0
   _reward:
     _gold: 2
     _exp: 34
+  storyId: 0

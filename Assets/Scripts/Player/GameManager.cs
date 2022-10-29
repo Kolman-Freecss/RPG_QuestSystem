@@ -31,6 +31,29 @@ namespace Kolman_Freecss.QuestSystem
             RefreshQuestGivers();
         }
 
+        private void Update()
+        {
+            // Use it like hack to test the quest system            
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (currentStory.CurrentQuest.QuestSO.Objectives[0].isCompleted)
+                {
+                    CompleteQuest();
+                }
+                else
+                {
+                    currentStory.CurrentQuest.QuestSO.Objectives[0].UpdateAmount(1);
+                }
+            }
+        }
+
+        public void CompleteQuest()
+        {
+            UpdateStatusGiverByQuestId(currentStory.CurrentQuest.ID);
+            currentStory.CompleteQuest();
+            RefreshQuestGivers();
+        }
+
         /**
          * Update the current story and the status of the current quest giver
          */
@@ -53,9 +76,9 @@ namespace Kolman_Freecss.QuestSystem
         /**
          * Update the current quest of the quest givers
          */
-        public void UpdateStatusGiverByQuestId(int questId)
+        public Quest UpdateStatusGiverByQuestId(int questId)
         {
-            GetQuestGiverByQuestId(questId).CurrentQuest.UpdateStatus();
+            return GetQuestGiverByQuestId(questId).CurrentQuest.UpdateStatus();
         }
         
         /**

@@ -36,6 +36,15 @@ namespace Kolman_Freecss.QuestSystem
         {
             NextQuest();
         }
+
+        public void CompleteQuest()
+        {
+            CurrentQuest.UpdateStatus();
+            if (CurrentQuest.IsCompleted())
+            {
+                NextQuest();
+            }
+        }
         
         /**
          * Active the next quest by index of the story steps

@@ -20,13 +20,22 @@ namespace Kolman_Freecss.QuestSystem
         {
             get => _requiredAmount;
         }
-
-        public void CheckCompletion()
+        
+        public void UpdateAmount(int amount)
         {
-            if (_currentAmount >= RequiredAmount)
+            if (_currentAmount < _requiredAmount)
+            {
+                _currentAmount += amount;
+            }
+            else
             {
                 isCompleted = true;
             }
         }
+        
+        /*public void ResetAmount()
+        {
+            _currentAmount = 0;
+        }*/
     }
 }

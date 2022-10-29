@@ -55,7 +55,7 @@ namespace Kolman_Freecss.QuestSystem
         
         public void OnCompleteQuest()
         {
-            _gameManager.NextQuest();
+            _gameManager.CompleteQuest();
             CloseQuest();
         }
         
