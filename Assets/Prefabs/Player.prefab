@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1894935461408426928}
   - component: {fileID: -6418922427144641334}
   - component: {fileID: -8437122003040418241}
+  - component: {fileID: 1894935460733525680}
+  - component: {fileID: 1894935460733525687}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -116,6 +118,8 @@ MonoBehaviour:
   questNotStartedCursor: {fileID: 2800000, guid: 68c95b538d41ffb4da03c8e477c52c33, type: 3}
   questStartedCursor: {fileID: 2800000, guid: a8bda1bf7a15e0b488920a1eb443d006, type: 3}
   questCompletedCursor: {fileID: 2800000, guid: 2b5d6bf9e1cf29a4d8e629c51d834ee4, type: 3}
+  questStartedCanvas: {fileID: 0}
+  questNotStartedCanvas: {fileID: 0}
 --- !u!114 &-8437122003040418241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,4 +132,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d36746f535c24578a50e6ab6522ceda2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questGivers: []
+  storiesSO:
+  - {fileID: 11400000, guid: 08e2a39d29fa50946b93000db5f3dcc1, type: 2}
+--- !u!114 &1894935460733525680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894935461408426931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1bb99cae69ef6194480b7d9018cbd900, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1894935460733525687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894935461408426931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 795c506839b8d0e41b3f7286373d0ba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  click: 0
+  cursorLocked: 1
+  cursorInputForLook: 1

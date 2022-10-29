@@ -31,6 +31,11 @@ namespace Kolman_Freecss.QuestSystem
             IsUnlocked = false;
             IsLocked = false;
         }
+
+        public void StartStory()
+        {
+            NextQuest();
+        }
         
         /**
          * Active the next quest by index of the story steps
@@ -44,8 +49,8 @@ namespace Kolman_Freecss.QuestSystem
             else
             {
                 CurrentQuest = GetQuestByStoryStep(CurrentQuest.QuestSO.StoryStep + 1);
-                CurrentQuest.ActiveQuest();
             }
+            CurrentQuest.ActiveQuest();
         }
 
         private Quest GetQuestByStoryStep(int step)

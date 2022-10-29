@@ -13,15 +13,33 @@ namespace Kolman_Freecss.QuestSystem
 
         public Quest CurrentQuest;
 
-        void Start()
+        private void Awake()
         {
             QuestsSO.ForEach(x => Quests.Add(new Quest(x)));
+        }
+
+        void Start()
+        {
             CurrentQuest = Quests[0];
         }
         
         public bool HasQuest(Quest quest)
         {
             return Quests.Contains(quest);
+        }
+        
+        public bool HasQuest(int questId)
+        {
+            return Quests.Exists(x => x.ID == questId);
+        }
+        
+        public void RefreshQuest(int questId)
+        {
+            Quest qs = Quests.Find(x => x.ID == questId).UpdateStatus();
+            if (qs.Status == QuestStatus.NotStarted)
+            {
+                CurrentQuest = qs;
+            }
         }
         
     }

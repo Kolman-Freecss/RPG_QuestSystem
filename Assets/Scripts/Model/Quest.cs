@@ -15,6 +15,11 @@
         }
         
         private QuestStatus _status;
+        public QuestStatus Status
+        {
+            get { return _status; }
+        } 
+            
         public int storyId;
         
         public Quest(QuestSO questSo)
@@ -47,13 +52,20 @@
             _status = QuestStatus.Completed;
         }
     
-        public void UpdateStatus()
+        public Quest UpdateStatus()
         {
             if (_status.Equals(QuestStatus.NotStarted))
             {
                 //if (CheckStartCondition())
                 //{
                     _status = QuestStatus.Started;
+                //}
+            }
+            else if (_status.Equals(QuestStatus.Inactive))
+            {
+                //if (CheckActiveCondition())
+                //{
+                    _status = QuestStatus.NotStarted;
                 //}
             }
             else if (_status == QuestStatus.Started)
@@ -63,6 +75,7 @@
                     _status = QuestStatus.Completed;
                 }
             }
+            return this;
         }
         
         /*private bool CheckStartCondition()

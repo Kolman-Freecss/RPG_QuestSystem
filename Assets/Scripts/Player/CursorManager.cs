@@ -67,7 +67,7 @@ namespace Kolman_Freecss.QuestSystem
                     Cursor.SetCursor(questStartedCursor, Vector2.zero, CursorMode.Auto);
                     if (_inputs.click)
                     {
-                        questStartedCanvas.SetActive(false);
+                        questStartedCanvas.SetActive(true);
                     }
                 }
                 else if (qg.CurrentQuest.IsCompleted())
@@ -79,7 +79,7 @@ namespace Kolman_Freecss.QuestSystem
                     Cursor.SetCursor(questNotStartedCursor, Vector2.zero, CursorMode.Auto);
                     if (_inputs.click)
                     {
-                        questNotStartedCanvas.SetActive(false);
+                        questNotStartedCanvas.SetActive(true);
                     }
                 }
                 else
