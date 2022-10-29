@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8535190802379863225}
   - component: {fileID: 1055714238214367393}
   m_Layer: 0
-  m_Name: Exit
+  m_Name: Complete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2891710712549986700}
         m_TargetAssemblyTypeName: Kolman_Freecss.QuestSystem.DisplayQuest, Assembly-CSharp
-        m_MethodName: OnExit
+        m_MethodName: OnCompleteQuest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 1470817001082518670}
   - component: {fileID: 8906891200304163231}
   m_Layer: 0
-  m_Name: Confirm
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,7 +258,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2891710712549986700}
         m_TargetAssemblyTypeName: Kolman_Freecss.QuestSystem.DisplayQuest, Assembly-CSharp
-        m_MethodName: OnAcceptQuest
+        m_MethodName: OnExit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Salir
+  m_text: Completar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -534,7 +534,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Confirmar
+  m_text: Salir
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -824,7 +824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4961872427223393680, guid: 7cf94a9b15579ad4cb39d5b26bf828b9, type: 3}
       propertyPath: m_Name
-      value: QuestNotStartedCanvas
+      value: QuestCompletedCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 6525462064246662969, guid: 7cf94a9b15579ad4cb39d5b26bf828b9, type: 3}
       propertyPath: m_AnchorMax.y

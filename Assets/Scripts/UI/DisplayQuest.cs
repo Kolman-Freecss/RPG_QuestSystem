@@ -57,5 +57,15 @@ namespace Kolman_Freecss.QuestSystem
             _gameManager.NextQuest();
         }
         
+        /*public void OnDeclineQuest()
+        {
+            _gameManager.DeclineQuest();
+        }*/
+        
+        public void OnExit()
+        {
+            gameObject.SetActive(false);
+        }
+        
     }
 }
