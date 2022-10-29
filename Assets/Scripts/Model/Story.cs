@@ -45,6 +45,11 @@ namespace Kolman_Freecss.QuestSystem
                 NextQuest();
             }
         }
+
+        /*public void UpdateQuestObjectiveAmount(int objectiveId, int amount)
+        {
+            
+        }*/
         
         /**
          * Active the next quest by index of the story steps
@@ -57,14 +62,13 @@ namespace Kolman_Freecss.QuestSystem
             }
             else
             {
-                CurrentQuest = GetQuestByStoryStep(CurrentQuest.QuestSO.StoryStep + 1);
+                CurrentQuest = GetQuestByStoryStep(CurrentQuest.storyStep + 1);
             }
-            CurrentQuest.ActiveQuest();
         }
 
         private Quest GetQuestByStoryStep(int step)
         {
-            return Quests.Find(q => q.QuestSO.StoryStep == step);
+            return Quests.Find(q => q.storyStep == step);
         }
 
         /**

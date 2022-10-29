@@ -33,16 +33,16 @@ namespace Kolman_Freecss.QuestSystem
 
         private void Update()
         {
-            // Use it like hack to test the quest system            
+            // ONLY!! Use it like hack to test the quest system            
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (currentStory.CurrentQuest.QuestSO.Objectives[0].isCompleted)
+                if (currentStory.CurrentQuest.objectives[0].isCompleted)
                 {
                     CompleteQuest();
                 }
                 else
                 {
-                    currentStory.CurrentQuest.QuestSO.Objectives[0].UpdateAmount(1);
+                    currentStory.CurrentQuest.objectives[0].UpdateAmount(1);
                 }
             }
         }

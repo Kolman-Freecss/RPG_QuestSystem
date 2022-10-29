@@ -21,6 +21,13 @@ namespace Kolman_Freecss.QuestSystem
             get => _requiredAmount;
         }
         
+        public Objective(Objective objective)
+        {
+            isCompleted = objective.isCompleted;
+            _currentAmount = 0;
+            _requiredAmount = objective._requiredAmount;
+        }
+        
         public void UpdateAmount(int amount)
         {
             if (_currentAmount < _requiredAmount)

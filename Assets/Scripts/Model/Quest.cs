@@ -1,4 +1,6 @@
-﻿namespace Kolman_Freecss.QuestSystem
+﻿using System.Collections.Generic;
+
+namespace Kolman_Freecss.QuestSystem
 {
     public class Quest
     {
@@ -7,12 +9,13 @@
         {
             get { return _id; }
         }
-        
-        private QuestSO _questSo;
-        public QuestSO QuestSO
-        {
-            get { return _questSo; }
-        }
+
+        public string title;
+        public string description;
+        public string objectiveText;
+        public List<Objective> objectives = new List<Objective>();
+        public int storyStep;
+        public Reward reward;
         
         private QuestStatus _status;
         public QuestStatus Status
@@ -21,20 +24,26 @@
         } 
             
         public int storyId;
-        
-        public Quest(QuestSO questSo)
+
+        public Quest()
         {
-            _questSo = questSo;
             _status = QuestStatus.Inactive;
+        }
+        
+        public Quest(QuestSO questSo) : this()
+        {
+            title = questSo.TitleValue;
+            description = questSo.DescriptionValue;
+            objectiveText = questSo.ObjectivesValue;
+            questSo.Objectives.ForEach(x => objectives.Add(new Objective(x)));
+            storyStep = questSo.StoryStep;
+            reward = questSo.RewardValue;
             storyId = questSo.storyId;
         }
         
-        public Quest(QuestSO questSo, int questId)
+        public Quest(QuestSO questSo, int questId) : this(questSo)
         {
             _id = questId;
-            _questSo = questSo;
-            _status = QuestStatus.Inactive;
-            storyId = questSo.storyId;
         }
         
         public void ActiveQuest()
@@ -72,7 +81,7 @@
             {
                 if (CheckEndCondition())
                 {
-                    _status = QuestStatus.Completed;
+                    CompleteQuest();
                 }
             }
             return this;
@@ -86,7 +95,7 @@
         private bool CheckEndCondition()
         {
             bool endCondition = true;
-            _questSo.Objectives.ForEach(o =>
+            objectives.ForEach(o =>
             {
                 if (!o.isCompleted)
                 {

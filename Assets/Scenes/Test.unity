@@ -389,6 +389,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 163342161654492716, guid: 6d6281a704957b24e8668e78c3d7d88a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 03e8e01a669a53d4aaeedf4309e241fd, type: 2}
     - target: {fileID: 163342161654492718, guid: 6d6281a704957b24e8668e78c3d7d88a, type: 3}
       propertyPath: m_RootOrder
       value: 0

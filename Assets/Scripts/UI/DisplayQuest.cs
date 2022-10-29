@@ -39,12 +39,12 @@ namespace Kolman_Freecss.QuestSystem
 
         public void DisplayQuestInfo(Quest quest)
         {
-            questName.text = quest.QuestSO.TitleValue;
-            questDescription.text = quest.QuestSO.DescriptionValue;
-            objectiveDescription.text = quest.QuestSO.ObjectivesValue;
+            questName.text = quest.title;
+            questDescription.text = quest.description;
+            objectiveDescription.text = quest.objectiveText;
             objectiveProgress.text = "";
-            quest.QuestSO.Objectives.ForEach(o => objectiveProgress.text += o.CurrentAmount + "/" + o.RequiredAmount);
-            questReward.text = quest.QuestSO.RewardValue.ToString();
+            quest.objectives.ForEach(o => objectiveProgress.text += o.CurrentAmount + "/" + o.RequiredAmount);
+            questReward.text = quest.reward.ToString();
         }
         
         public void OnAcceptQuest()
