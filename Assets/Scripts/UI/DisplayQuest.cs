@@ -42,6 +42,7 @@ namespace Kolman_Freecss.QuestSystem
             questName.text = quest.QuestSO.TitleValue;
             questDescription.text = quest.QuestSO.DescriptionValue;
             objectiveDescription.text = quest.QuestSO.ObjectivesValue;
+            objectiveProgress.text = "";
             quest.QuestSO.Objectives.ForEach(o => objectiveProgress.text += o.CurrentAmount + "/" + o.RequiredAmount);
             questReward.text = quest.QuestSO.RewardValue.ToString();
         }
