@@ -23,7 +23,7 @@ namespace Kolman_Freecss.QuestSystem
             Name = storySo.name;
             Description = storySo.description;
             //TODO Add id Strategy
-            storySo.quests.ForEach(x => Quests.Add(new Quest(x, Quests.Count)));
+            storySo.quests.ForEach(x => Quests.Add(new Quest(x, x.StoryStep)));
             storySo.SubStories.ForEach(x => SubStories.Add(new Story(x)));
             IsCompleted = false;
             IsMainStory = storySo.isMainStory;
@@ -37,13 +37,20 @@ namespace Kolman_Freecss.QuestSystem
             NextQuest();
         }
 
-        public void CompleteQuest()
+        public Quest CompleteQuest()
         {
             CurrentQuest.UpdateStatus();
             if (CurrentQuest.IsCompleted())
             {
                 NextQuest();
             }
+
+            return CurrentQuest;
+        }
+
+        public void CompleteStory()
+        {
+            IsCompleted = true;
         }
 
         /*public void UpdateQuestObjectiveAmount(int objectiveId, int amount)
@@ -54,7 +61,7 @@ namespace Kolman_Freecss.QuestSystem
         /**
          * Active the next quest by index of the story steps
          */
-        public void NextQuest()
+        public Quest NextQuest()
         {
             if (CurrentQuest == null)
             {
@@ -64,6 +71,8 @@ namespace Kolman_Freecss.QuestSystem
             {
                 CurrentQuest = GetQuestByStoryStep(CurrentQuest.storyStep + 1);
             }
+
+            return CurrentQuest;
         }
 
         private Quest GetQuestByStoryStep(int step)

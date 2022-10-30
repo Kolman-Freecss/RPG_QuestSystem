@@ -23,7 +23,7 @@ namespace Kolman_Freecss.QuestSystem
             get { return _status; }
         } 
             
-        public int storyId;
+        public int StoryId;
 
         public Quest()
         {
@@ -38,7 +38,7 @@ namespace Kolman_Freecss.QuestSystem
             questSo.Objectives.ForEach(x => objectives.Add(new Objective(x)));
             storyStep = questSo.StoryStep;
             reward = questSo.RewardValue;
-            storyId = questSo.storyId;
+            StoryId = questSo.storyId;
         }
         
         public Quest(QuestSO questSo, int questId) : this(questSo)

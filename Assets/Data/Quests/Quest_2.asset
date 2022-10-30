@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc29ff992889ca4a9bfe794579dc848, type: 3}
   m_Name: Quest_2
   m_EditorClassIdentifier: 
-  _title: Default quest
+  _title: Default quest 2
   _description: Default description quest
   _objectiveText: "Default objective quest\t"
   _objectives:

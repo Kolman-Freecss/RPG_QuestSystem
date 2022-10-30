@@ -13,7 +13,6 @@ namespace Kolman_Freecss.QuestSystem
 
         public void OnFire(InputValue value)
         {
-            Debug.Log("Fire, " + value.Get<float>());
             FireInput(value.isPressed);
         }
 

@@ -15,7 +15,7 @@ namespace Kolman_Freecss.QuestSystem
 
         private void Awake()
         {
-            QuestsSO.ForEach(x => Quests.Add(new Quest(x)));
+            QuestsSO.ForEach(x => Quests.Add(new Quest(x, x.StoryStep)));
         }
 
         void Start()
@@ -31,6 +31,11 @@ namespace Kolman_Freecss.QuestSystem
         public bool HasQuest(int questId)
         {
             return Quests.Exists(x => x.ID == questId);
+        }
+        
+        public void FinishQuest()
+        {
+            CurrentQuest = null;
         }
         
         public void RefreshQuest(int questId)

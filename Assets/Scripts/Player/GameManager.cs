@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Kolman_Freecss.QuestSystem
@@ -47,11 +48,21 @@ namespace Kolman_Freecss.QuestSystem
             }
         }
 
+        /**
+         * Finish the current quest and start the next one
+         */
         public void CompleteQuest()
         {
-            UpdateStatusGiverByQuestId(currentStory.CurrentQuest.ID);
-            currentStory.CompleteQuest();
-            RefreshQuestGivers();
+            FinishStatusGiverByQuestId(currentStory.CurrentQuest.ID);
+            if (currentStory.CompleteQuest() != null)
+            {
+                RefreshQuestGivers();
+            }
+            else
+            {
+                currentStory.CompleteStory();
+                Debug.Log("Story completed");
+            }
         }
 
         /**
@@ -71,6 +82,11 @@ namespace Kolman_Freecss.QuestSystem
             UpdateStatusGiverByQuestId(currentStory.CurrentQuest.ID);
             currentStory.NextQuest();
             RefreshQuestGivers();
+        }
+        
+        public void FinishStatusGiverByQuestId(int questId)
+        {
+            GetQuestGiverByQuestId(questId).FinishQuest();
         }
         
         /**

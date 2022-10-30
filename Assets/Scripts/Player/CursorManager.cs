@@ -75,6 +75,10 @@ namespace Kolman_Freecss.QuestSystem
                 else if (qg.CurrentQuest.IsCompleted())
                 {
                     Cursor.SetCursor(questCompletedCursor, Vector2.zero, CursorMode.Auto);
+                    if (_inputs.click)
+                    {
+                        questCompletedCanvas.SetActive(true);
+                    }
                 }
                 else if (qg.CurrentQuest.IsNotStarted())
                 {
