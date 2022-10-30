@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0288ff7e37f84e18ab759fedfc7f16f7, type: 3}
   m_Name: Story_1
   m_EditorClassIdentifier: 
+  id: 0
   name: S1
   description: S1D
   quests:
   - {fileID: 11400000, guid: f665c3b2f8f42144095271370da3698c, type: 2}
   - {fileID: 11400000, guid: f5ac109748122c3428349f2ae462da6e, type: 2}
+  - {fileID: 11400000, guid: 49ab2f445395a7a4fade86d34029049c, type: 2}
+  SubStories: []
+  ParentStory: {fileID: 0}
   isMainStory: 1
   isSubStory: 0

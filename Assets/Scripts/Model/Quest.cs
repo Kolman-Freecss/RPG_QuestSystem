@@ -56,10 +56,25 @@ namespace Kolman_Freecss.QuestSystem
             _status = QuestStatus.Started;
         }
         
-        public void CompleteQuest()
+        public Quest CompleteQuest()
         {
             _status = QuestStatus.Completed;
+            return this;
         }
+        
+        public bool UpdateQuestObjectiveAmount(int amount)
+        {
+            if (objectives[0].UpdateAmount(amount))
+            {
+                CompleteQuest();
+            }
+            return _status == QuestStatus.Completed;
+        }
+        
+        /*public void UpdateQuestObjectiveAmount(int objectiveId, int amount)
+        {
+            objectives[objectiveId].UpdateAmount(amount);
+        }*/
     
         public Quest UpdateStatus()
         {

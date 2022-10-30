@@ -37,7 +37,15 @@ namespace Kolman_Freecss.QuestSystem
         {
             CurrentQuest = null;
         }
+
+        public Quest CompleteQuest()
+        {
+            return CurrentQuest.CompleteQuest();
+        }
         
+        /**
+         * Refresh the quest by quest id parameter
+         */
         public void RefreshQuest(int questId)
         {
             Quest qs = Quests.Find(x => x.ID == questId).UpdateStatus();

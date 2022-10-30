@@ -37,13 +37,21 @@ namespace Kolman_Freecss.QuestSystem
             // ONLY!! Use it like hack to test the quest system            
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                Debug.Log(currentStory.CurrentQuest.objectives[0].isCompleted);
                 if (currentStory.CurrentQuest.objectives[0].isCompleted)
                 {
+                    Debug.Log("Complete quest");
                     CompleteQuest();
                 }
                 else
                 {
-                    currentStory.CurrentQuest.objectives[0].UpdateAmount(1);
+                    Debug.Log("Update objective");
+                    if (currentStory.UpdateQuestObjectiveAmount(1))
+                    {
+                        Debug.Log("Complete quest");
+                        CompleteStatusGiverByQuestId(currentStory.CurrentQuest.ID);
+                    }
+                    Debug.Log("Update -> " + currentStory.CurrentQuest.objectives[0].isCompleted);
                 }
             }
         }
@@ -87,6 +95,11 @@ namespace Kolman_Freecss.QuestSystem
         public void FinishStatusGiverByQuestId(int questId)
         {
             GetQuestGiverByQuestId(questId).FinishQuest();
+        }
+        
+        public Quest CompleteStatusGiverByQuestId(int questId)
+        {
+            return GetQuestGiverByQuestId(questId).CompleteQuest();
         }
         
         /**

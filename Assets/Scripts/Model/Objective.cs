@@ -28,7 +28,10 @@ namespace Kolman_Freecss.QuestSystem
             _requiredAmount = objective._requiredAmount;
         }
         
-        public void UpdateAmount(int amount)
+        /**
+         * returns true if the objective is completed
+         */
+        public bool UpdateAmount(int amount)
         {
             if (_currentAmount < _requiredAmount)
             {
@@ -38,6 +41,8 @@ namespace Kolman_Freecss.QuestSystem
             {
                 isCompleted = true;
             }
+
+            return isCompleted;
         }
         
         /*public void ResetAmount()
