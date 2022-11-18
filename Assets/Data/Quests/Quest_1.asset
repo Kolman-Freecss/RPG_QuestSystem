@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _title: Default quest 1
   _description: Default description quest
-  _objectiveText: "Default objective quest\t"
+  _objectiveText: "Default objective quest\t\n\n\nLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAMLURAM"
   _objectives:
   - isCompleted: 0
     _requiredAmount: 12
